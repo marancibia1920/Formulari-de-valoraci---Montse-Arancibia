@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Votacions Mistral</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <script type="text/javascript" src="/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=7pXgWSWAKt_UgGPdQb5hgxMd5ktcPcWu7z727YstNFKPnwGEetz1SuEw3hAfuHzWgFPu68HnbINI1fiQ6s1EoaCECEliZNi2g6TP4vu0XFP849srakgUr-A5-A5R6MbTQpaoiuFZyefAfuzCxfk8pqcX8WC6aecHs1WHYpWBaYWC7Vx6d_7GJQGrOPb10RGTcBdumJj4T5uXLYDqrc0-pFuH-1CX4Rj7YujcjRrXX3CmOgFkUvMgsrYXJba0Frrd8UjkCA0WWO6XV6Dv446o8A" charset="UTF-8"></script><style>
+        :root {
+            --c-bg: #000;
+            --c-fg: #fff;
+            --c-accent: rgb(0, 200, 255);
+            --c-fg-2: #e9e9e9;
+
+            --radius: .6rem;
+            --ts: .25s ease;
+            font-family: "Inter", system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--c-bg);
+            color: var(--c-fg);
+        }
+
+        .menu {
+            background: var(--c-bg);
+            color: var(--c-fg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem clamp(1rem, 4vw, 2rem);
+        }
+
+        .botonVr {
+            color: var(--c-bg);
+            background: var(--c-fg);
+            padding: .35rem .75rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background var(--ts), color var(--ts);
+        }
+
+        .botonVr:hover,
+        .botonVr:focus-visible {
+            background: var(--c-fg-2);
+            color: var(--c-bg);
+        }
+
+        .titulo {
+            margin-top: 6rem;
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            color: var(--c-fg);
+        }
+
+        .containerLogo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .logo {
+            width: 250px;
+            border-radius: 3px;
+        }
+
+        .formulario {
+            margin: 3rem auto 5rem;
+            width: min(92%, 380px);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 2rem;
+            border-radius: var(--radius);
+            color: var(--c-fg);
+            background: #0c0c0c;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1f1f1f;
+            backdrop-filter: blur(6px);
+        }
+
+        .formulario p {
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: var(--c-fg-2);
+        }
+
+        input[type="text"],
+        .select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #333;
+            border-radius: var(--radius);
+            background-color: #121212;
+            color: var(--c-fg);
+            font-size: 0.95rem;
+            transition: all var(--ts);
+        }
+
+        input[type="text"]:focus-visible,
+        .select:focus-visible {
+            outline: none;
+            border-color: var(--c-accent);
+            background-color: #181818;
+            box-shadow: 0 0 0 3px rgba(0, 238, 255, 0.2);
+        }
+
+        .botoEnviar {
+            padding: 0.75rem 1.25rem;
+            background-color: var(--c-accent);
+            color: #000;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: background var(--ts), transform var(--ts), box-shadow var(--ts);
+            cursor: pointer;
+            align-self: flex-end;
+        }
+
+        .botoEnviar:hover,
+        .botoEnviar:focus-visible {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(84, 201, 255, 0.3);
+        }
+
+        #aviso {
+            color: #ff7676;
+            min-height: 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        table{
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        
+        th {
+            background-color: #1f1f1f;
+            color: var(--c-fg);
+        }
+
+        tr:nth-child(even) {
+            background-color: #121212;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="menu">
+        <h1>Votacions realitzadas </h1>
+        <div class="menuDerecha">
+            <a class="botonVr" href="/">Inici</a>
+        </div>
+    </nav>
+
+    <table>
+        <tr>
+            <th>DNI</th>
+            <th>POBLACIÓ</th>
+            <th>VALORACIÓ</th>
+        </tr>
+
+        {% for opcion in opciones %}
+        <tr>
+            <td>{{opcion[0]}}</td>
+            <td>{{opcion[1]}}</td>
+            <td>{{opcion[2]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+   
+</body>
+
+</html>
